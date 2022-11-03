@@ -1,12 +1,12 @@
 import { Component } from "react";
 import { Serchbar } from "../components/Searchbar/Searchbar";
 import { ToastContainer,toast} from 'react-toastify';
-import { ImageGallery } from './ImageGallery/ImageGallery';
+import { ImageGallery } from './Gallery/ImageGallery';
 import 'react-toastify/dist/ReactToastify.css';
-import { FechCSerchImages } from 'servises/serchimages-api';
+import { FechCSerchImages } from './api/Api';
 import { Loader } from "./Loader/Loader";
 import { ButtonMore } from './Button/Button';
-import { Title } from './components/Serchbar/Serchbar.styled';
+import { Title } from './Searchbar/Serchbar.styled';
 
 
 

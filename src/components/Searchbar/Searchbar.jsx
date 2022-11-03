@@ -18,7 +18,6 @@ export class Serchbar extends Component {
         }
         
         this.props.propSubmit(this.state.searchPictures);
-        // this.setState({ searchPictures: '' });
     }
 
 
