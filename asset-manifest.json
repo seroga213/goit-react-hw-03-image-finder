@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/seroga213/goit-react-hw-03-image-finder.git/static/css/main.7acaea2f.css",
-    "main.js": "/seroga213/goit-react-hw-03-image-finder.git/static/js/main.07d3183d.js",
+    "main.css": "/seroga213/goit-react-hw-03-image-finder.git/static/css/main.35b3864a.css",
+    "main.js": "/seroga213/goit-react-hw-03-image-finder.git/static/js/main.c6d20b4a.js",
     "index.html": "/seroga213/goit-react-hw-03-image-finder.git/index.html",
-    "main.7acaea2f.css.map": "/seroga213/goit-react-hw-03-image-finder.git/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/seroga213/goit-react-hw-03-image-finder.git/static/js/main.07d3183d.js.map"
+    "main.35b3864a.css.map": "/seroga213/goit-react-hw-03-image-finder.git/static/css/main.35b3864a.css.map",
+    "main.c6d20b4a.js.map": "/seroga213/goit-react-hw-03-image-finder.git/static/js/main.c6d20b4a.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/css/main.35b3864a.css",
+    "static/js/main.c6d20b4a.js"
   ]
 }
