@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { toast } from 'react-toastify';
 import { SerchFormBox, Header, SearchFormButton,SearchFormInput } from './Serchbar.styled';
-import { MdOutlineFindInPage } from "react-icons/md";
+import { MdSearch } from "react-icons/md";
 import PropTypes from 'prop-types';
 
 
@@ -34,7 +34,7 @@ export class Serchbar extends Component {
                 <SerchFormBox
                     onSubmit={this.handleNameChange}>
                         <SearchFormButton type="submit">
-                            <MdOutlineFindInPage size={40} />
+                            <MdSearch size={40} />
                         </SearchFormButton>
 
                         <SearchFormInput onChange={this.handleInputChange}

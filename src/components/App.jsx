@@ -35,7 +35,7 @@ export class App extends Component {
   }
 
 
-  componentDidUpdate(prevState) {
+  componentDidUpdate(prevProps, prevState) {
 
     if (prevState.searchPictures !== this.state.searchPictures ||
       prevState.page !== this.state.page) {

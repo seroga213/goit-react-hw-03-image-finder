@@ -3,16 +3,14 @@ import styled from 'styled-components';
 export const Button = styled.button`
     padding: 8px 16px;
     border-radius: 2px;
-    background-color: #3f51b5;
+    background-color: #f089eb;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
     text-align: center;
     display: inline-block;
     color: #fff;
-    border:  ${p => p.theme.space[0]}px;
     text-decoration: none;
     cursor: pointer;
     font-family: inherit;
-    font-size:  ${p => p.theme.fontSizes.m};
     line-height: 24px;
     font-style: normal;
     font-weight: 500;
@@ -24,5 +22,5 @@ export const Button = styled.button`
                 0px 1px 5px 0px 
                 rgba(0, 0, 0, 0.12);
 :hover, :focus {
-    background-color: #303f9f;
+    background-color: #f03e74;
 `

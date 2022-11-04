@@ -6,5 +6,5 @@ export const Box = styled.div`
     align-items: center;
 `
 export const Text = styled.div`
-    font-size: ${p => p.theme.fontSizes.m};
+    
 `
