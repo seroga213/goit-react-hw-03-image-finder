@@ -10,17 +10,15 @@ export class ImageGalleryItem extends Component {
     };
 
     togglModal = () => {
-        // console.log('визиваюсь')
         this.setState(prevState => ({
             modalIsOpen: !prevState.modalIsOpen
         }))
-        // console.log(this.state.modalIsOpen);
+        
     }    
 
     render() {
         
         const {webformatURL, tags, largeImageURL} = this.props
-        //   console.log(this.state.modalIsOpen)
         return (
            <> 
                 <ImageGalleryItems>

@@ -9,7 +9,6 @@ const modalRoot = document.querySelector('#modal-root');
 export class Modal extends Component {
 
     componentDidMount() {
-        // console.log('did mount')
         window.addEventListener('keydown', this.handlecloseEscape)
     }
 
@@ -18,7 +17,6 @@ export class Modal extends Component {
      }
 
     handlecloseEscape = (e) => {
-        // console.log('Esc')
         if (e.code === 'Escape') {
             this.props.onClose();
         }
