@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Serchbar } from "./Searchbar/Searchbar";
+import { Searchbar } from "./Searchbar/Searchbar";
 import { ToastContainer,toast} from 'react-toastify';
 import { ImageGallery } from './Gallery/ImageGallery';
 import 'react-toastify/dist/ReactToastify.css';
@@ -35,7 +35,7 @@ export class App extends Component {
   }
 
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(_, prevState) {
 
     if (prevState.searchPictures !== this.state.searchPictures ||
       prevState.page !== this.state.page) {
@@ -45,24 +45,18 @@ export class App extends Component {
       const { searchPictures, page, perPage, } = this.state
 
       FechCSerchImages(searchPictures, page, perPage)
-        .then(({ total, totalHits, hits }) => {
+        .then(({ total, findPictures, hits }) => {
                     
           if (total === 0) {
             this.setState({ status: "rejected" })
             return Promise.reject(new Error(`Sorry, but we can't find ${searchPictures}. Try again.`))
           }
-              
-          if (totalHits > perPage) {
-            this.setState({ loadingmore: true })
-          }
-              
-          if (page === Math.ceil(totalHits / perPage)) {
-            this.setState({ loadingmore: false });
-          }
-                
-          this.setState({ findPictures: { total, totalHits, hits }, status: "resolved" })
-              
+             
+          findPictures.hits.length < findPictures.totalHits &&
+             <ButtonMore onClick={this.loadMore}></ButtonMore>
+             console.log(hits)
         })
+        
         .catch(error => this.setState({ error, status: "rejected" }))
 
     }
@@ -71,9 +65,10 @@ export class App extends Component {
   loadMore = () => {
     this.setState(prevState => ({ page: prevState.page + 1 }))
   }
+  
 
   render() {
-    const { findPictures, status, error, loadingmore } = this.state;
+    const { findPictures, status, error, } = this.state;
     
     return (<div
       style={{
@@ -88,13 +83,12 @@ export class App extends Component {
         gridGap: '16px',
 
       }}>
-      <Serchbar propSubmit={this.handleSerchImages} />
+      <Searchbar propSubmit={this.handleSerchImages} />
       <ToastContainer autoClose={1500} />
       {status === "pending" && <Loader></Loader>}
       {status === "rejected" && <Title > {error.message} </Title>}
       {status === "resolved" && <>
-        <ImageGallery pictureSerch={findPictures}></ImageGallery >
-        {loadingmore && <ButtonMore onClick={this.loadMore}></ButtonMore>}
+        <ImageGallery pictureSearch={findPictures}></ImageGallery >
       </>}
     </div>
     );

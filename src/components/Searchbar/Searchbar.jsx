@@ -1,11 +1,11 @@
 import { Component } from "react";
 import { toast } from 'react-toastify';
-import { SerchFormBox, Header, SearchFormButton,SearchFormInput } from './Serchbar.styled';
+import { SearchFormBox, Header, SearchFormButton,SearchFormInput } from './Serchbar.styled';
 import { MdSearch } from "react-icons/md";
 import PropTypes from 'prop-types';
 
 
-export class Serchbar extends Component {
+export class Searchbar extends Component {
     state={
         searchPictures: '',
     }
@@ -31,7 +31,7 @@ export class Serchbar extends Component {
     render() {
         return (
             <Header>
-                <SerchFormBox
+                <SearchFormBox
                     onSubmit={this.handleNameChange}>
                         <SearchFormButton type="submit">
                             <MdSearch size={40} />
@@ -44,13 +44,13 @@ export class Serchbar extends Component {
                             autoFocus
                             placeholder="Search images and photos"
                     />
-                </SerchFormBox>
+                </SearchFormBox>
             </Header>
             
         )
     }
 }
 
-Serchbar.propTypes = {
+Searchbar.propTypes = {
     propSubmit: PropTypes.func.isRequired,
 }
