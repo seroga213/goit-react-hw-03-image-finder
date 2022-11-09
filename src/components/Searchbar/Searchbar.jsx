@@ -1,56 +1,52 @@
 import { Component } from "react";
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import { SearchFormBox, Header, SearchFormButton,SearchFormInput } from './Serchbar.styled';
 import { MdSearch } from "react-icons/md";
 import PropTypes from 'prop-types';
 
 
 export class Searchbar extends Component {
-    state={
-        searchPictures: '',
-    }
+    state = {
+        value: '',
+    };
 
-    handleNameChange = (e) => {
-        e.preventDefault();
-        
-        if (this.state.searchPictures.trim() === '') {
-            return toast.error("Please input some name pictures to find ");
+    handleChange = e => {
+     this.setState({ value: e.currentTarget.value.toLowerCase() });
+  };
+
+    handleSubmit = e => {
+      e.preventDefault();
+      const searchValue =this.state.value.trim()
+        if (searchValue === '') {
+        alert('Введіть імя картинки.')
+            return;
         }
-        
-        this.props.propSubmit(this.state.searchPictures);
-
-    }
-
-
-    handleInputChange = (e) => {
-
-        this.setState({ searchPictures: e.currentTarget.value.toLowerCase()})
-    }
-
+        this.props.onSubmit(searchValue);
+        this.setState({ value: '' });
+    };
 
     render() {
-        return (
-            <Header>
-                <SearchFormBox
-                    onSubmit={this.handleNameChange}>
-                        <SearchFormButton type="submit">
-                            <MdSearch size={40} />
-                        </SearchFormButton>
-
-                        <SearchFormInput onChange={this.handleInputChange}
-                            type="text"
-                            value={this.state.searchPictures}
-                            autoComplete="off"
-                            autoFocus
-                            placeholder="Search images and photos"
-                    />
-                </SearchFormBox>
-            </Header>
+      return (
+       <Header>
+        <SearchFormBox onSubmit={this.handleSubmit}>
+            <SearchFormButton type="submit">
+              <MdSearch style={{ marginRight: 10 }} />
             
-        )
-    }
+            </SearchFormButton>
+            <SearchFormInput
+            type="text"
+            autoComplete="off"
+            autoFocus
+            placeholder="Search images and photos"
+            onChange={this.handleChange}
+            value={this.state.value}
+          />
+        </SearchFormBox>
+      </Header>
+    );
+  }
 }
 
 Searchbar.propTypes = {
-    propSubmit: PropTypes.func.isRequired,
-}
+  onSubmit: PropTypes.func.isRequired,
+};

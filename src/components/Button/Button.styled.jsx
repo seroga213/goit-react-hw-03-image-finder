@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
+    margin: 9px;
     padding: 8px 16px;
     border-radius: 2px;
     background-color: #f089eb;
@@ -23,4 +24,9 @@ export const Button = styled.button`
                 rgba(0, 0, 0, 0.12);
 :hover, :focus {
     background-color: #f03e74;
+`
+
+export const div = styled.button`
+justify-content: center;
+
 `

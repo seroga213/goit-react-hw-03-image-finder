@@ -1,49 +1,41 @@
 import { Component } from 'react';
-import { createPortal } from 'react-dom';
+// import { createPortal } from 'react-dom';
 import { BakcDrop, ModalWindow } from './Modal.styled';
 import PropTypes from 'prop-types';
 
 
-const modalRoot = document.querySelector('#modal-root');
-
 export class Modal extends Component {
-
     componentDidMount() {
-        window.addEventListener('keydown', this.handlecloseEscape)
+      window.addEventListener('keydown', this.handleKeyDown);
     }
-
     componentWillUnmount() {
-        window.removeEventListener('keydown', this.handlecloseEscape)
-     }
-
-    handlecloseEscape = (e) => {
-        if (e.code === 'Escape') {
-            this.props.onClose();
-        }
+      window.removeEventListener('keydown', this.handleKeyDown);
     }
-
-    closeModal = (e) => {
-        if (e.target === e.currentTarget) {
-            this.props.onClose();
-        }
-  }
-
-
+    handleKeyDown = e => {
+      if (e.code === 'Escape') {
+        this.props.closeModal();
+      }
+    };
+    handleBackdropClick = e => {
+      if (e.currentTarget === e.target) {
+        this.props.closeModal();
+      }
+    };
     render() {
-        return createPortal(
-            <BakcDrop onClick={this.closeModal}>
-                <ModalWindow> 
-                    {this.props.children}
-                </ModalWindow>
-            </BakcDrop>,
-            
-            modalRoot)
+      return (
+        <BakcDrop className onClick={this.handleBackdropClick}>
+          <ModalWindow className>
+            <img
+              src={this.props.largeImage}
+              alt="choosed foto"
+            />
+          </ModalWindow>
+        </BakcDrop>
+      );
     }
-        
-    
-}
-
-Modal.propTypes = {
-    onClose: PropTypes.func.isRequired,
-    children: PropTypes.node.isRequired,
-}
+  }
+  
+  Modal.propTypes = {
+    closeModal: PropTypes.func.isRequired,
+    largeImage: PropTypes.string.isRequired,
+  };
